@@ -1,2 +1,5 @@
 *.exe
 *.zip
+
+service_install.bat
+service_delete.bat
