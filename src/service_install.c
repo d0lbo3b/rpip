@@ -41,6 +41,7 @@ int main(){
     fprintf(
         fd_d,
         "@echo off\n" 
+        "sc stop %s\n"
         "sc delete %s\n"
         "echo Service has been deleted\n"
         "pause\n",
