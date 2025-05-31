@@ -1,0 +1,1 @@
+#define SERVICE_NAME "rpip"
