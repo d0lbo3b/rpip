@@ -51,6 +51,7 @@ int main(){
         "sc delete %s\n"
         "echo Service has been deleted\n"
         "pause\n",
+        SERVICE_NAME,
         SERVICE_NAME
     );
 
