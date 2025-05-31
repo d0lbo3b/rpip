@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <direct.h>
 #include "shared.h"
 
 int main(){
@@ -13,14 +14,19 @@ int main(){
     scanf("%255s", &process_name_to_run);
     printf("Path to Process to Run: ");
     scanf("%255s", &process_path_to_run);
-    printf("Path to rpip.exe: ");
-    scanf("%255s", &rpip_path);
 
     FILE* fd_i = fopen("service_install.bat", "w+");
     FILE* fd_d = fopen("service_delete.bat", "w+");
 
     if (fd_i == NULL || fd_d == NULL){
         perror("Error openning file");
+        return 1;
+    }
+
+    if (_getcwd(rpip_path, sizeof(rpip_path)) != NULL){
+        sprintf(rpip_path, "%s%s", rpip_path, "\\rpip.exe");
+    } else {
+        perror("_getcwd() error");
         return 1;
     }
 
@@ -51,5 +57,5 @@ int main(){
     fclose(fd_i);
     fclose(fd_d);
 
-    return 1;
+    return 0;
 }
