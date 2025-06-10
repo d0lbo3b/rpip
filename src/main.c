@@ -72,7 +72,7 @@ int run_process(const char* path) {
     STARTUPINFOA si = {0};
     PROCESS_INFORMATION pi;
     si.cb = sizeof(STARTUPINFOA);
-    si.lpDesktop = "winsta0\\default";  // necessary for GUI apps
+    si.lpDesktop = "winsta0\\default";
 
     char cmdLine[MAX_PATH * 2];
     snprintf(cmdLine, sizeof(cmdLine), "\"%s\"", path);
